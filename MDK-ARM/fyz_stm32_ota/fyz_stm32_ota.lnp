@@ -10,6 +10,7 @@
 "fyz_stm32_ota\stm32f1xx_hal_msp.o"
 "fyz_stm32_ota\delay.o"
 "fyz_stm32_ota\w25q128.o"
+"fyz_stm32_ota\flash.o"
 "fyz_stm32_ota\stm32f1xx_hal_gpio_ex.o"
 "fyz_stm32_ota\stm32f1xx_hal_spi.o"
 "fyz_stm32_ota\stm32f1xx_hal.o"

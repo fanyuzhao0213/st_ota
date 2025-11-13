@@ -38,3 +38,4 @@ fyz_stm32_ota\main.o: ../Core/Inc/gpio.h
 fyz_stm32_ota\main.o: ..\app\delay\delay.h
 fyz_stm32_ota\main.o: ..\app\W25Q128\W25Q128.h
 fyz_stm32_ota\main.o: ..\app\W25Q128\W25Q128_Ins.h
+fyz_stm32_ota\main.o: ..\app\FLASH\flash.h

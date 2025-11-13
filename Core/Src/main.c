@@ -28,6 +28,7 @@
 /* USER CODE BEGIN Includes */
 #include "delay.h"
 #include "W25Q128.h"
+#include "flash.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -110,6 +111,10 @@ int main(void)
 	HAL_TIM_Base_Start_IT(&htim1);
 	Print_System_Info();
 	W25Q128_Test();
+	// 显示Flash信息
+    FLASH_ShowInfo();
+    // 执行快速测试
+    FLASH_QuickTest();
   /* USER CODE END 2 */
 
   /* Infinite loop */
