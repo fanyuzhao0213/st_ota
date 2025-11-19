@@ -5,7 +5,7 @@
 
 typedef void (*pFunction)(void);
 
-#define STM32_OTA_FIRE_NUMBER			11
+#define STM32_OTA_FIRE_NUMBER			5
 
 #define STM32_FLASH_STARTADDR			(0x08000000)                                                 	//STM32 Flash起始地址
 #define STM32_PAGE_SIZE					(1024)                                                       	//一页（扇区）大小
@@ -20,6 +20,11 @@ typedef void (*pFunction)(void);
 #define  UPDATA_A_FLAG      				(0x00000001)        //状态标志位，置位表明需要更新A了
 #define  IAP_XMODEMC_FLAG  					(0x00000002)        //状态标志位，置位表明Xmdoem协议第一阶段发送大写C       
 #define  IAP_XMODEMD_FLAG   				(0x00000004)        //状态标志位，置位表明Xmdoem协议第二阶段处理数据包     
+#define  IAP_WRITE_VERSION_FLAG 			(0x00000008)		//状态标志位，置位表明需要设置OTA版本号
+#define  IAP_DOWNLOAD_TO_FLASH_FLAG         (0x00000010)    	// 状态标志位，置位表明需要向外部Flash下载程序
+#define  IAP_DOWNLOAD_TO_FLASH_XMODEM_FLAG  (0x00000020)        //状态标志位，置位表明需要利用Xmdoem协议处理命令5的操作，把程序数据写到W25Q64相应的块中
+#define  IAP_USE_FLASH_PROGRAM_FLAG         (0x00000040)    	// 状态标志位，置位表明需要使用外部Flash内的程序
+
 
 #pragma pack(push, 1)  // 保存当前对齐方式，设置为1字节对齐
 typedef struct{

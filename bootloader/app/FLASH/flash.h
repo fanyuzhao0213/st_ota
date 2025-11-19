@@ -41,6 +41,7 @@ HAL_StatusTypeDef FLASH_Verify(uint32_t address, uint8_t *data, uint32_t size);
 uint32_t FLASH_GetSectorAddress(FlashSector_t sector);
 FlashSector_t FLASH_GetSectorFromAddress(uint32_t address);
 uint32_t FLASH_GetSectorSize(FlashSector_t sector);
+HAL_StatusTypeDef STM32_EraseFromPageToEnd(uint16_t start_page);
 void FLASH_QuickTest(void);
 void FLASH_ShowInfo(void);
 #ifdef __cplusplus

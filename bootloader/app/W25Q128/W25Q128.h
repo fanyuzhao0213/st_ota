@@ -27,6 +27,8 @@ void W25Q128_WriteEnable(void);
 void W25Q128_WaitBusy(void);
 void W25Q128_PageProgram(uint32_t Address, uint8_t *DataArray, uint16_t Count);
 void W25Q128_SectorErase(uint32_t Address);
+void W25Q128_BlockErase_64KB(uint32_t Address);
+void W25Q128_EraseBlockByNumber(uint8_t block_num);
 void W25Q128_ReadData(uint32_t Address, uint8_t *DataArray, uint32_t Count);
 void W25Q128_Test(void);
 uint32_t W25Q128_WriteData(uint32_t Address, uint8_t *DataArray, uint32_t Count);

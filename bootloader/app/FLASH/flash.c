@@ -304,8 +304,6 @@ void FLASH_QuickTest(void)
     uint8_t read_back[32];
     uint32_t i;
     
-    printf("\r\n==== Quick Flash Test ====\r\n");
-    
     // 准备测试数据
     for (i = 0; i < sizeof(test_data); i++) {
         test_data[i] = 0xA0 + i;  // 0xA0, 0xA1, 0xA2, ...
@@ -313,38 +311,26 @@ void FLASH_QuickTest(void)
     
     // 测试地址（扇区3的末尾）
     uint32_t test_addr = FLASH_GetSectorAddress(FLASH_SECTOR_3) + FLASH_SECTOR_SIZE - 64;
-    
-    printf("Test Address: 0x%08X\r\n", test_addr);
-    
+
     // 擦除扇区
     if (FLASH_EraseSector(FLASH_SECTOR_3) != HAL_OK) {
-        printf("Erase failed!\r\n");
         return;
     }
     
     // 写入数据
     if (FLASH_Write(test_addr, test_data, sizeof(test_data)) != HAL_OK) {
-        printf("Write failed!\r\n");
         return;
     }
     
     // 读取验证
     if (FLASH_Read(test_addr, read_back, sizeof(read_back)) != HAL_OK) {
-        printf("Read failed!\r\n");
         return;
     }
     
     // 简单比较
     if (memcmp(test_data, read_back, sizeof(test_data)) == 0) {
-        printf("Quick test: PASSED ?\r\n");
     } else {
         printf("Quick test: FAILED ?\r\n");
-        
-        printf("Expected: ");
-        for (i = 0; i < 16; i++) printf("%02X ", test_data[i]);
-        printf("\r\nGot:      ");
-        for (i = 0; i < 16; i++) printf("%02X ", read_back[i]);
-        printf("\r\n");
     }
     
     printf("==== Quick Test End ====\r\n\r\n");
@@ -361,5 +347,74 @@ void FLASH_ShowInfo(void)
     printf("Sector Size: %d KB\r\n", FLASH_SECTOR_SIZE / 1024);
     printf("Total Sectors: %d\r\n", FLASH_TOTAL_SECTORS);
     printf("=====================================\r\n\r\n");
+}
+
+/**
+  * @brief  擦除指定范围的Flash页
+  * @param  start_page: 起始页编号 (0开始)
+  * @param  page_count: 要擦除的页数量
+  * @retval HAL状态: HAL_OK 成功, HAL_ERROR 失败
+  */
+HAL_StatusTypeDef STM32_EraseFlash(uint16_t start_page, uint16_t page_count)
+{
+    HAL_StatusTypeDef status = HAL_OK;
+    uint16_t i;
+    uint32_t page_address;
+    FLASH_EraseInitTypeDef erase_init;
+    uint32_t sector_error;
+    
+    // 参数检查
+    if (page_count == 0) {
+        return HAL_ERROR;
+    }
+    
+    // 解锁Flash
+    if (HAL_FLASH_Unlock() != HAL_OK) {
+        return HAL_ERROR;
+    }
+    
+    // 擦除每一页
+    for (i = 0; i < page_count; i++) {
+        // 计算页地址
+        page_address = 0x08000000 + 1024 * start_page + 1024 * i;
+        
+        // 配置擦除参数
+        erase_init.TypeErase = FLASH_TYPEERASE_PAGES;
+        erase_init.Banks = FLASH_BANK_1;
+        erase_init.PageAddress = page_address;
+        erase_init.NbPages = 1;
+        
+        // 执行擦除
+        status = HAL_FLASHEx_Erase(&erase_init, &sector_error);
+        if (status != HAL_OK) {
+			printf("FLASH_EraseRange A failed!\r\n");
+            break;  // 擦除失败，退出循环
+        }
+        
+        // 可选：添加小延时，确保擦除完成
+        HAL_Delay(1);
+    }
+    
+    // 锁定Flash
+    HAL_FLASH_Lock();
+    
+    return status;
+}
+
+/**
+  * @brief  擦除从指定页到Flash末尾的所有页
+  * @param  start_page: 起始页编号
+  * @retval HAL状态
+  */
+HAL_StatusTypeDef STM32_EraseFromPageToEnd(uint16_t start_page)
+{
+    // 计算总页数 (64KB Flash = 64页，每页1KB)
+    uint16_t total_pages = FLASH_SIZE / 1024;  // 64
+    uint16_t pages_to_erase = total_pages - start_page;
+    
+    printf("Erasing from page %d to page %d (%d pages)\r\n", 
+           start_page, total_pages - 1, pages_to_erase);
+    
+    return STM32_EraseFlash(start_page, pages_to_erase);
 }
 

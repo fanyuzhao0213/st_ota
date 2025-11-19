@@ -185,6 +185,39 @@ void W25Q128_SectorErase(uint32_t Address)
 }
 
 /**
+  * 函    数：W25Q128块擦除（64KB）
+  * 参    数：Address 指定块的地址，范围：0x000000~0xFFFFFF
+  * 返 回 值：无
+  */
+void W25Q128_BlockErase_64KB(uint32_t Address)
+{
+    W25Q128_WriteEnable();                      //写使能
+    
+    MySPI_Start();                              //SPI起始
+    MySPI_SwapByte(W25Q64_BLOCK_ERASE_64KB);    //交换发送64KB块擦除的指令
+    MySPI_SwapByte(Address >> 16);              //交换发送地址23~16位
+    MySPI_SwapByte(Address >> 8);               //交换发送地址15~8位
+    MySPI_SwapByte(Address);                    //交换发送地址7~0位
+    MySPI_Stop();                               //SPI终止
+    
+    W25Q128_WaitBusy();                         //等待忙
+}
+
+/**
+  * 函    数：根据块号擦除W25Q128块（64KB）
+  * 参    数：block_num 块编号，范围：0~255（W25Q128共有256个64KB块）
+  * 返 回 值：无
+  */
+void W25Q128_EraseBlockByNumber(uint8_t block_num)
+{
+    // 计算块起始地址：块号 × 块大小(64KB = 0x10000)
+    uint32_t address = (uint32_t)block_num * 0x10000;
+    
+    printf("擦除块 %d，起始地址: 0x%06X\r\n", block_num, address);
+    W25Q128_BlockErase_64KB(address);
+}
+
+/**
   * 函    数：W25Q128读取数据
   * 参    数：Address 读取数据的起始地址，范围：0x000000~0xFFFFFF
   * 参    数：DataArray 用于接收读取数据的数组，通过输出参数返回
@@ -208,35 +241,35 @@ void W25Q128_ReadData(uint32_t Address, uint8_t *DataArray, uint32_t Count)
 
 
 #include <string.h>   // 用于 memset
-uint8_t test_data[1024] = {0};
-void W25Q128_Test(void)
-{
-    uint8_t MID;
-    uint16_t DID;
-    uint8_t TxBuffer[256];
-    uint8_t RxBuffer[256];
-    uint32_t i;
+//uint8_t test_data[1024] = {0};
+//void W25Q128_Test(void)
+//{
+//    uint8_t MID;
+//    uint16_t DID;
+//    uint8_t TxBuffer[256];
+//    uint8_t RxBuffer[256];
+//    uint32_t i;
 
-    printf("==== W25Q128 Test Start ====\r\n");
+//    printf("==== W25Q128 Test Start ====\r\n");
 
-    /* 1. 读 JEDEC ID */
-    W25Q128_ReadID(&MID, &DID);
-	printf("W25Q64 JEDEC ID: MID=0x%02X, DID=0x%04X\r\n", MID, DID);
-    // 常见ID判断
-    if (MID == 0xEF)   // Winbond 厂家 ID
-    {
-        switch (DID)
-        {
-            case 0x4017: printf("Detected: W25Q64 (64M-bit / 8M-Byte)\r\n"); break;
-            case 0x4018: printf("Detected: W25Q128 (128M-bit / 16M-Byte)\r\n"); break;
-            default:     printf("Unknown Winbond Flash, DID=0x%04X\r\n", DID); break;
-        }
-    }
-    else
-    {
-        printf("Unknown Manufacturer ID: 0x%02X\r\n", MID);
-    }
-	
+//    /* 1. 读 JEDEC ID */
+//    W25Q128_ReadID(&MID, &DID);
+//	printf("W25Q64 JEDEC ID: MID=0x%02X, DID=0x%04X\r\n", MID, DID);
+//    // 常见ID判断
+//    if (MID == 0xEF)   // Winbond 厂家 ID
+//    {
+//        switch (DID)
+//        {
+//            case 0x4017: printf("Detected: W25Q64 (64M-bit / 8M-Byte)\r\n"); break;
+//            case 0x4018: printf("Detected: W25Q128 (128M-bit / 16M-Byte)\r\n"); break;
+//            default:     printf("Unknown Winbond Flash, DID=0x%04X\r\n", DID); break;
+//        }
+//    }
+//    else
+//    {
+//        printf("Unknown Manufacturer ID: 0x%02X\r\n", MID);
+//    }
+//	
 //    /* 2. 扇区擦除 */
 //    printf("Erase Sector at 0x000000 ...\r\n");
 //    W25Q128_SectorErase(0x000000);
@@ -276,40 +309,40 @@ void W25Q128_Test(void)
 //    else
 //        printf("Page Program Verify at 0x000000: FAIL\r\n");
 
-	uint16_t written =0;
-	memset(test_data,0xBB,1024);
-	
-	// 1. 计算包含目标地址的扇区
-    uint32_t sector_addr = (0xFFFFFF - 255) & 0xFFFFF000;  // 4KB对齐
-    // 2. 擦除整个扇区
-    printf("Erasing sector at 0x%08X...\r\n", sector_addr);
-    W25Q128_SectorErase(sector_addr);
+//	uint16_t written =0;
+//	memset(test_data,0xBB,1024);
+//	
+//	// 1. 计算包含目标地址的扇区
+//    uint32_t sector_addr = (0xFFFFFF - 255) & 0xFFFFF000;  // 4KB对齐
+//    // 2. 擦除整个扇区
+//    printf("Erasing sector at 0x%08X...\r\n", sector_addr);
+//    W25Q128_SectorErase(sector_addr);
 
-	// 方法1：直接写入任意长度数据（自动跨页）
-    written = W25Q128_WriteData(0x1000, test_data, sizeof(test_data));
-    printf("W25Q128_WriteData write data of page: %d byte\r\n", written);
-	
-	
-    /* 7. 测试在最后一页写入 (0xFFFFFF - 255 ~ 0xFFFFFF) */
-    for (i = 0; i < 256; i++)
-    {
-        TxBuffer[i] = 0xA0 + (i & 0x0F);  // 填充另一组测试数据
-    }
-    printf("Page Program 256 bytes at LAST PAGE (0xFFFF00) ...\r\n");
-    W25Q128_PageProgram(0xFFFFFF - 255, TxBuffer, 256);
+//	// 方法1：直接写入任意长度数据（自动跨页）
+//    written = W25Q128_WriteData(0x1000, test_data, sizeof(test_data));
+//    printf("W25Q128_WriteData write data of page: %d byte\r\n", written);
+//	
+//	
+//    /* 7. 测试在最后一页写入 (0xFFFFFF - 255 ~ 0xFFFFFF) */
+//    for (i = 0; i < 256; i++)
+//    {
+//        TxBuffer[i] = 0xA0 + (i & 0x0F);  // 填充另一组测试数据
+//    }
+//    printf("Page Program 256 bytes at LAST PAGE (0xFFFF00) ...\r\n");
+//    W25Q128_PageProgram(0xFFFFFF - 255, TxBuffer, 256);
 
-    /* 8. 读回最后一页数据 */
-    memset(RxBuffer, 0, sizeof(RxBuffer));
-    W25Q128_ReadData(0xFFFFFF - 255, RxBuffer, 256);
-    printf("Read back last page first 256 bytes (0xFFFF00): \r\n");
-    for (i = 0; i < 256; i++) printf("%02X ", RxBuffer[i]);
-    printf("\r\n");
+//    /* 8. 读回最后一页数据 */
+//    memset(RxBuffer, 0, sizeof(RxBuffer));
+//    W25Q128_ReadData(0xFFFFFF - 255, RxBuffer, 256);
+//    printf("Read back last page first 256 bytes (0xFFFF00): \r\n");
+//    for (i = 0; i < 256; i++) printf("%02X ", RxBuffer[i]);
+//    printf("\r\n");
 
-    /* 9. 校验最后一页写入的数据 */
-    if (memcmp(TxBuffer, RxBuffer, 256) == 0)
-        printf("Page Program Verify at LAST PAGE: PASS\r\n");
-    else
-        printf("Page Program Verify at LAST PAGE: FAIL\r\n");
+//    /* 9. 校验最后一页写入的数据 */
+//    if (memcmp(TxBuffer, RxBuffer, 256) == 0)
+//        printf("Page Program Verify at LAST PAGE: PASS\r\n");
+//    else
+//        printf("Page Program Verify at LAST PAGE: FAIL\r\n");
 
-    printf("==== W25Q128 Test End ====\r\n");
-}
+//    printf("==== W25Q128 Test End ====\r\n");
+//}

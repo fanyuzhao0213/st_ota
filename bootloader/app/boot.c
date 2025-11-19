@@ -137,7 +137,7 @@ void BootLoader_Info(void)
 
 void BootLoader_Branch(void)
 {
-	if(BootLoader_Enter_Command(50) == 0)
+	if(BootLoader_Enter_Command(30) == 0)
 	{
 		if(OTA_Info.OTA_flag == OTA_SET_FLAG)
 		{
@@ -165,22 +165,26 @@ void BootLoader_Event(uint8_t *data, uint16_t datalen)
 {
     uint8_t ack_byte = 0x06;
     uint8_t nck_byte = 0x15;
-    
+    int temp = 0;
+	int i = 0;
     /*--------------------------------------------------*/
     /*          没有任何事件，判断顶层命令              */
     /*--------------------------------------------------*/
     if(BootStateFlag == 0)
     {
         ringbuf_advance_tail(&uart2, 1);  // 可以提到外面，避免重复
-        
         switch(data[0])
         {
             case '1':
                 printf("擦除A区\r\n");
-                if(FLASH_EraseRange(STM32_A_START_ADDR, STM32_A_END_ADDR) == HAL_OK)
-                    printf("FLASH_EraseRange A success!\r\n");
-                else
-                    printf("FLASH_EraseRange A failed!\r\n");
+				STM32_EraseFromPageToEnd(20);
+//				if(FLASH_EraseRange(STM32_A_START_ADDR,STM32_A_END_ADDR) == HAL_OK)		//将A区空间擦除
+//				{
+//					printf("FLASH_EraseRange A success!\r\n");
+//				}
+//                else
+//                    printf("FLASH_EraseRange A failed!\r\n");
+				BootLoader_Info(); 
                 break;
                 
             case '2':
@@ -193,21 +197,24 @@ void BootLoader_Event(uint8_t *data, uint16_t datalen)
             case '3':
                 printf("设置版本号\r\n");
                 // TODO: 实现版本号设置
-                break;
-                
+				BootStateFlag |= IAP_WRITE_VERSION_FLAG;
+                break;    
             case '4':
                 printf("查询版本号\r\n");
-                printf("版本号:%s\r\n", OTA_Info.OTA_Version);
-                break;
-                
+				W25Q128_ReadOTAInfo(); 
+				printf("版本号:%s\r\n",OTA_Info.OTA_Version);
+				BootLoader_Info();                                                         //串口输出命令行信息  
+			break;        
             case '5':
                 printf("向外部Flash下载程序，输入需要使用的块编号（1~9）\r\n");
                 // TODO: 实现外部Flash下载
+				BootStateFlag|= IAP_DOWNLOAD_TO_FLASH_FLAG;
                 break;
                 
             case '6':
                 printf("使用外部Flash内的程序，输入需要使用的块编号（1~9）\r\n");
                 // TODO: 实现外部Flash程序使用
+				BootStateFlag|= IAP_USE_FLASH_PROGRAM_FLAG;
                 break;
                 
             case '7':
@@ -224,64 +231,158 @@ void BootLoader_Event(uint8_t *data, uint16_t datalen)
     /*--------------------------------------------------*/
     /*          发生Xmodem事件，处理该事件              */
     /*--------------------------------------------------*/
-    else if(BootStateFlag & IAP_XMODEMD_FLAG)
-    {
-        if((datalen == 133) && (data[0] == 0x01))  // Xmodem数据包
-        {
-            BootStateFlag &= ~IAP_XMODEMC_FLAG;
-            
-            // CRC校验
-            UpdateA.XmodemCRC = Xmodem_CRC16(&data[3], 128);
-            uint16_t received_crc = (data[131] << 8) | data[132];
-            
-            if(UpdateA.XmodemCRC == received_crc)
-            {
-                UpdateA.XmodemNB++;
-                
-                // 计算缓冲区位置
-                uint32_t buff_pos = ((UpdateA.XmodemNB - 1) % (STM32_PAGE_SIZE / 128)) * 128;
-                
-                // 复制数据到缓冲区
-                memcpy(&UpdateA.Updata_A_Buff[buff_pos], &data[3], 128);
-                
-                // 检查是否需要写入Flash（缓冲区满）
-                if((UpdateA.XmodemNB % (STM32_PAGE_SIZE / 128)) == 0)
-                {
-                    uint32_t flash_addr = STM32_A_START_ADDR + ((UpdateA.XmodemNB / (STM32_PAGE_SIZE / 128)) - 1) * STM32_PAGE_SIZE;
-					printf("ota flash 1K addr at 0x%08X...\r\n", flash_addr);
-                    if(FLASH_Write(flash_addr, (uint8_t *)UpdateA.Updata_A_Buff, STM32_PAGE_SIZE) != HAL_OK)
+	else if(BootStateFlag & IAP_XMODEMD_FLAG)
+	{
+		if((datalen == 133) && (data[0] == 0x01))  // Xmodem数据包
+		{
+			BootStateFlag &= ~IAP_XMODEMC_FLAG;
+			// CRC校验
+			UpdateA.XmodemCRC = Xmodem_CRC16(&data[3], 128);
+			uint16_t received_crc = (data[131] << 8) | data[132];
+			if(UpdateA.XmodemCRC == received_crc)
+			{
+				UpdateA.XmodemNB++;
+				// 计算缓冲区位置
+				uint32_t buff_pos = ((UpdateA.XmodemNB - 1) % (STM32_PAGE_SIZE / 128)) * 128;
+				// 复制数据到缓冲区
+				memcpy(&UpdateA.Updata_A_Buff[buff_pos], &data[3], 128);
+				
+				// 检查是否需要写入Flash（缓冲区满）
+				if((UpdateA.XmodemNB % (STM32_PAGE_SIZE / 128)) == 0)
+				{
+					if(BootStateFlag & IAP_DOWNLOAD_TO_FLASH_XMODEM_FLAG)
+					{
+						// 计算当前批次对应的逻辑单元索引
+						uint16_t currentBatch = (UpdateA.XmodemNB / 8) - 1;
+						for(i = 0; i < 4; i++)
+						{
+							// 正确的页编号计算
+							uint16_t pageNumber = currentBatch * 4 + i + UpdateA.Updata_A_from_W25Q64_Num * 64 * 4;
+							uint32_t actualAddress = pageNumber * 256;
+							W25Q128_PageProgram(actualAddress, &UpdateA.Updata_A_Buff[i*256], 256);
+						}
+					}
+					else
+					{
+						uint32_t flash_addr = STM32_A_START_ADDR + ((UpdateA.XmodemNB / (STM32_PAGE_SIZE / 128)) - 1) * STM32_PAGE_SIZE;
+						printf("ota flash 1K addr at 0x%08X...\r\n", flash_addr);
+						if(FLASH_Write(flash_addr, (uint8_t *)UpdateA.Updata_A_Buff, STM32_PAGE_SIZE) != HAL_OK)
+						{
+							printf("FLASH_Write failed!\r\n");
+						}
+					}
+				}
+				HAL_UART_Transmit(&huart2, &ack_byte, 1, HAL_MAX_DELAY);
+			}
+			else
+			{
+				HAL_UART_Transmit(&huart2, &nck_byte, 1, HAL_MAX_DELAY);
+			}
+			
+			ringbuf_advance_tail(&uart2, 133);
+		}
+		else if((datalen == 1) && (data[0] == 0x04))  // EOT结束传输
+		{
+			HAL_UART_Transmit(&huart2, &ack_byte, 1, HAL_MAX_DELAY);
+			
+			// 处理剩余数据
+			if((UpdateA.XmodemNB % (STM32_PAGE_SIZE / 128)) != 0)
+			{
+				if(BootStateFlag & IAP_DOWNLOAD_TO_FLASH_XMODEM_FLAG)
+				{
+					// 计算剩余数据占用的页数
+					uint32_t remaining_packets = UpdateA.XmodemNB % 8;
+					uint32_t pages_needed = (remaining_packets * 128 + 255) / 256; // 向上取整
+					uint16_t currentBatch = UpdateA.XmodemNB / 8;
+					for(i = 0; i < pages_needed; i++)
+					{
+						uint16_t pageNumber = currentBatch * 4 + i + UpdateA.Updata_A_from_W25Q64_Num * 64 * 4;
+						uint32_t actualAddress = pageNumber * 256;
+						uint32_t write_size = (i == pages_needed - 1) ? 
+											 (remaining_packets * 128 - i * 256) : 256;
+						W25Q128_PageProgram(actualAddress, &UpdateA.Updata_A_Buff[i*256], write_size);
+					}
+				}
+				else
+				{
+					uint32_t remaining_bytes = (UpdateA.XmodemNB % (STM32_PAGE_SIZE / 128)) * 128;
+					uint32_t flash_addr = STM32_A_START_ADDR + ((UpdateA.XmodemNB / (STM32_PAGE_SIZE / 128))) * STM32_PAGE_SIZE;
+					if(FLASH_Write(flash_addr, (uint8_t *)UpdateA.Updata_A_Buff, remaining_bytes) != HAL_OK)
 					{
 						printf("FLASH_Write failed!\r\n");
 					}
-                }
-                
-                HAL_UART_Transmit(&huart2, &ack_byte, 1, HAL_MAX_DELAY);
-            }
-            else
-            {
-                HAL_UART_Transmit(&huart2, &nck_byte, 1, HAL_MAX_DELAY);
-            }
-            
-            ringbuf_advance_tail(&uart2, 133);
-        }
-        else if((datalen == 1) && (data[0] == 0x04))  // EOT结束传输
-        {
-            HAL_UART_Transmit(&huart2, &ack_byte, 1, HAL_MAX_DELAY);  //ACK
-            
-            // 处理剩余数据
-            if((UpdateA.XmodemNB % (STM32_PAGE_SIZE / 128)) != 0)
-            {
-                uint32_t remaining_bytes = (UpdateA.XmodemNB % (STM32_PAGE_SIZE / 128)) * 128;
-                uint32_t flash_addr = STM32_A_START_ADDR + 
-                                    ((UpdateA.XmodemNB / (STM32_PAGE_SIZE / 128))) * STM32_PAGE_SIZE;
-                FLASH_Write(flash_addr, (uint8_t *)UpdateA.Updata_A_Buff, remaining_bytes);
-            }
-            
-            BootStateFlag &= ~IAP_XMODEMD_FLAG;
-            HAL_Delay(100);
-            NVIC_SystemReset();
-        }
-    }
+				}
+			}
+			
+			BootStateFlag &= ~IAP_XMODEMD_FLAG;
+			if(BootStateFlag & IAP_DOWNLOAD_TO_FLASH_XMODEM_FLAG){                           //判断如果是命令5启动Xmodem的话，进入if
+				BootStateFlag &=~ IAP_DOWNLOAD_TO_FLASH_XMODEM_FLAG;                       //清除FLAG
+				OTA_Info.FirmwareLen[UpdateA.Updata_A_from_W25Q64_Num] = UpdateA.XmodemNB * 128;   //计算并保存本次传输的程序大小
+				printf("OTA_Info.FirmwareLen[UpdateA.Updata_A_from_W25Q64_Num]:%d\r\n",OTA_Info.FirmwareLen[UpdateA.Updata_A_from_W25Q64_Num]);
+				W25Q128_WriteOTAInfoSafe();
+				HAL_Delay(100); 
+				BootLoader_Info();                                      //输出命令行信息
+			}else{                                                      //判断如果不是命令5启动Xmodem的话，那就是串口IAP启动的，进入else
+				HAL_Delay(100);
+				NVIC_SystemReset();                                     //重启
+			}
+		}
+	}
+	/*--------------------------------------------------*/
+	/*         发生设置版本号事件，处理改事件           */
+	/*--------------------------------------------------*/
+	else if(BootStateFlag & IAP_WRITE_VERSION_FLAG){                              //进入分支，处理设置版本号事件
+		if(datalen==26){                                                //判断版本号长度是不是26，正确进入if
+			if(sscanf((char *)data,"VER-%d.%d.%d-%d/%d/%d-%d:%d",&temp,&temp,&temp,&temp,&temp,&temp,&temp,&temp)==8){  //判断版本号格式，正确进入if
+				memset(OTA_Info.OTA_Version,0,32);                          //清除OTA_Info.OTA_ver缓冲区
+				memcpy(OTA_Info.OTA_Version,data,26);                       //将串口发送过来的版本号拷贝到OTA_Info.OTA_ver缓冲区       
+				W25Q128_WriteOTAInfoSafe();
+				printf("版本正确\r\n");
+				BootStateFlag &=~ IAP_WRITE_VERSION_FLAG;        		//清除标志位
+				BootLoader_Info();                                      //输出命令行信息
+			}
+			else printf("版本号格式错误\r\n");                      //判断版本号格式错误，串口0提示
+		}else printf("版本号长度错误\r\n");                          //判断版本号长度错误，串口0提示
+		
+		ringbuf_advance_tail(&uart2, datalen);
+	}
+	/*--------------------------------------------------*/
+	/*            发生 DOWNLOAD_TO_FLASH 事件，处理改事件             */
+	/*--------------------------------------------------*/
+	else if(BootStateFlag & IAP_DOWNLOAD_TO_FLASH_FLAG){                   				//进入分支，处理DOWNLOAD_TO_FLASH，将程序文件写入W25Q64
+		if(datalen==1)																	//数据长度是1正确，进入if，表示W25Q64的块标号
+		{
+			if((data[0]>=0x31)&&(data[0]<=0x39))                       					//判断W25Q64的块标号，范围1~9，正确进入if
+			{	
+				UpdateA.Updata_A_from_W25Q64_Num = data[0] - 0x30 - 1;                				//将块标号由字符1~9编号，转换成数字1~9
+				printf("UpdateA.Updata_A_from_W25Q64_Num :%d\r\n",UpdateA.Updata_A_from_W25Q64_Num);
+				BootStateFlag |= (IAP_XMODEMC_FLAG|IAP_XMODEMD_FLAG|IAP_DOWNLOAD_TO_FLASH_XMODEM_FLAG); //置位3个标志位
+				UpdateA.XmodemTimer = 0;                                             	//Xmodem发送大写C 间隔时间变量清零
+				UpdateA.XmodemNB= 0;                                                 	//保持接收Xmodem协议数据包个数的变量清零
+				OTA_Info.FirmwareLen[UpdateA.Updata_A_from_W25Q64_Num] = 0;      		//W25Q64的块标号对应的程序大小变量清零
+				W25Q128_EraseBlockByNumber(UpdateA.Updata_A_from_W25Q64_Num - 1);		//擦除相应的W25Q64块
+				printf("通过Xmodem协议，向外部Flash第%d个块下载程序，请使用bin格式文件\r\n",UpdateA.Updata_A_from_W25Q64_Num); //串口0输出信息
+				BootStateFlag &=~ IAP_DOWNLOAD_TO_FLASH_FLAG;                                          //清除标志位
+			}else printf("编号错误\r\n");                            	//判断W25Q64的块标号，范围1~9，错误进入else，串口0输出信息
+		}else printf("数据长度错误\r\n");                            		//判断数据长度，不是1的话错误进入else，串口0输出信息
+		
+		ringbuf_advance_tail(&uart2, datalen);
+	}
+	/*--------------------------------------------------*/
+	/*            发生 USE_FLASH_PROGRAM 事件，处理改事件             */
+	/*--------------------------------------------------*/
+	else if(BootStateFlag & IAP_USE_FLASH_PROGRAM_FLAG)  		//进入分支，处理命令6，使用W25Q64内的程序
+	{	
+		if(datalen==1)
+		{ 
+			if((data[0]>=0x31)&&(data[0]<=0x39))        				//判断W25Q64的块标号，范围1~9，正确进入if
+			{	
+				UpdateA.Updata_A_from_W25Q64_Num = data[0] - 0x30 - 1; 		//将块标号由字符1~9编号，转换成数字1~9
+				BootStateFlag |= UPDATA_A_FLAG;           				 //置位标志位，表明需要更新A区
+				BootStateFlag &=~ IAP_USE_FLASH_PROGRAM_FLAG;              //清除标志位
+			}else printf("编号错误\r\n");             //判断W25Q64的块标号，范围1~9，错误进入else，串口0输出信息
+		}else printf("数据长度错误\r\n");             //判断数据长度，不是1的话错误进入else，串口0输出信息
+	}
 }
 
 
