@@ -400,6 +400,45 @@ void print_array_hex(const char *tag, const uint8_t *array, uint16_t len)
     printf("======END=====\r\n");
 }
 
+void print_string(const char *tag, const uint8_t *array, uint16_t len)
+{
+    if (array == NULL || len == 0) {
+        return;
+    }
+    
+    printf("[%s] :[%d]\r\n", tag, len);
+	printf("======START=====\r\n");
+	#if LOG_LEVEL >= LOG_LEVEL_DEBUG
+    for (uint16_t i = 0; i < len; i++) {
+        printf("%s ", (char*)array[i]);
+    }
+	printf("\r\n");
+	#endif 
+    printf("======END=====\r\n");
+}
+
+
+/**
+  * @brief  通过UART2发送字符串（带超时）
+  * @param  data: 要发送的字符串指针
+  * @param  len: 要发送的数据长度
+  * @param  timeout: 超时时间(ms)
+  * @retval HAL状态
+  */
+HAL_StatusTypeDef UART2_SendString_Timeout(const char *data, uint16_t len, uint32_t timeout)
+{
+    if (data == NULL || len == 0) {
+        return HAL_ERROR;
+    }
+	printf("ESP8266 send: \r\n");
+	for(uint16_t i = 0; i < len; i++) 
+	{
+		printf("%c",data[i]);
+	}
+	printf("\r\n");
+    return HAL_UART_Transmit(&huart2, (uint8_t *)data, len, timeout);
+}
+
 
 int fputc(int ch, FILE *f) {
 	HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);

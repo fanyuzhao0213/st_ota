@@ -1,7 +1,7 @@
 Dependencies for Project 'fyz_stm32_ota', Target 'fyz_stm32_ota': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (startup_stm32f103xb.s)(0x69157E7C)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o fyz_stm32_ota\startup_stm32f103xb.o --depend fyz_stm32_ota\startup_stm32f103xb.d)
-F (../Core/Src/main.c)(0x691D7916)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\main.o --omf_browse fyz_stm32_ota\main.crf --depend fyz_stm32_ota\main.d)
+F (../Core/Src/main.c)(0x691ED224)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\main.o --omf_browse fyz_stm32_ota\main.crf --depend fyz_stm32_ota\main.d)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
@@ -34,14 +34,15 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
 I (../Core/Inc/dma.h)(0x69157E78)
 I (../Core/Inc/spi.h)(0x69157E79)
 I (../Core/Inc/tim.h)(0x69157E79)
-I (../Core/Inc/usart.h)(0x691589D4)
+I (../Core/Inc/usart.h)(0x691ECB97)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (../Core/Inc/gpio.h)(0x69157E78)
 I (..\app\delay\delay.h)(0x69158B4A)
 I (..\app\W25Q128\W25Q128.h)(0x69159108)
 I (..\app\W25Q128\W25Q128_Ins.h)(0x69158F6F)
 I (..\app\FLASH\flash.h)(0x691597D1)
-F (../Core/Src/gpio.c)(0x69159070)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\gpio.o --omf_browse fyz_stm32_ota\gpio.crf --depend fyz_stm32_ota\gpio.d)
+I (..\MDK-ARM\network.h)(0x691EEFAD)
+F (../Core/Src/gpio.c)(0x69159070)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\gpio.o --omf_browse fyz_stm32_ota\gpio.crf --depend fyz_stm32_ota\gpio.d)
 I (../Core/Inc/gpio.h)(0x69157E78)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -72,7 +73,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Core/Src/dma.c)(0x69157E78)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\dma.o --omf_browse fyz_stm32_ota\dma.crf --depend fyz_stm32_ota\dma.d)
+F (../Core/Src/dma.c)(0x69157E78)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\dma.o --omf_browse fyz_stm32_ota\dma.crf --depend fyz_stm32_ota\dma.d)
 I (../Core/Inc/dma.h)(0x69157E78)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -103,7 +104,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Core/Src/spi.c)(0x69157E79)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\spi.o --omf_browse fyz_stm32_ota\spi.crf --depend fyz_stm32_ota\spi.d)
+F (../Core/Src/spi.c)(0x69157E79)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\spi.o --omf_browse fyz_stm32_ota\spi.crf --depend fyz_stm32_ota\spi.d)
 I (../Core/Inc/spi.h)(0x69157E79)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -134,7 +135,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Core/Src/tim.c)(0x6915849F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\tim.o --omf_browse fyz_stm32_ota\tim.crf --depend fyz_stm32_ota\tim.d)
+F (../Core/Src/tim.c)(0x6915849F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\tim.o --omf_browse fyz_stm32_ota\tim.crf --depend fyz_stm32_ota\tim.d)
 I (../Core/Inc/tim.h)(0x69157E79)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -165,8 +166,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Core/Src/usart.c)(0x691589C7)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\usart.o --omf_browse fyz_stm32_ota\usart.crf --depend fyz_stm32_ota\usart.d)
-I (../Core/Inc/usart.h)(0x691589D4)
+F (../Core/Src/usart.c)(0x691EDAB4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\usart.o --omf_browse fyz_stm32_ota\usart.crf --depend fyz_stm32_ota\usart.d)
+I (../Core/Inc/usart.h)(0x691ECB97)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
@@ -197,7 +198,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (../Core/Src/stm32f1xx_it.c)(0x6915860C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_it.o --omf_browse fyz_stm32_ota\stm32f1xx_it.crf --depend fyz_stm32_ota\stm32f1xx_it.d)
+F (../Core/Src/stm32f1xx_it.c)(0x6915860C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_it.o --omf_browse fyz_stm32_ota\stm32f1xx_it.crf --depend fyz_stm32_ota\stm32f1xx_it.d)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
@@ -228,9 +229,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_it.h)(0x69157E79)
-I (../Core/Inc/usart.h)(0x691589D4)
+I (../Core/Inc/usart.h)(0x691ECB97)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (../Core/Src/stm32f1xx_hal_msp.c)(0x69157E79)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_msp.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_msp.crf --depend fyz_stm32_ota\stm32f1xx_hal_msp.d)
+F (../Core/Src/stm32f1xx_hal_msp.c)(0x69157E79)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_msp.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_msp.crf --depend fyz_stm32_ota\stm32f1xx_hal_msp.d)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
@@ -260,7 +261,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (..\app\delay\delay.c)(0x69158D06)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\delay.o --omf_browse fyz_stm32_ota\delay.crf --depend fyz_stm32_ota\delay.d)
+F (..\app\delay\delay.c)(0x69158D06)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\delay.o --omf_browse fyz_stm32_ota\delay.crf --depend fyz_stm32_ota\delay.d)
 I (..\app\delay\delay.h)(0x69158B4A)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -291,7 +292,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (..\app\W25Q128\W25Q128.c)(0x691594EA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\w25q128.o --omf_browse fyz_stm32_ota\w25q128.crf --depend fyz_stm32_ota\w25q128.d)
+F (..\app\W25Q128\W25Q128.c)(0x691594EA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\w25q128.o --omf_browse fyz_stm32_ota\w25q128.crf --depend fyz_stm32_ota\w25q128.d)
 I (..\app\W25Q128\W25Q128.h)(0x69159108)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -324,10 +325,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
 I (..\app\W25Q128\W25Q128_Ins.h)(0x69158F6F)
 I (../Core/Inc/spi.h)(0x69157E79)
-I (../Core/Inc/usart.h)(0x691589D4)
+I (../Core/Inc/usart.h)(0x691ECB97)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
-F (..\app\FLASH\flash.c)(0x69159A99)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\flash.o --omf_browse fyz_stm32_ota\flash.crf --depend fyz_stm32_ota\flash.d)
+F (..\app\FLASH\flash.c)(0x69159A99)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\flash.o --omf_browse fyz_stm32_ota\flash.crf --depend fyz_stm32_ota\flash.d)
 I (..\app\FLASH\flash.h)(0x691597D1)
 I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
@@ -359,9 +360,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
-I (../Core/Inc/usart.h)(0x691589D4)
+I (../Core/Inc/usart.h)(0x691ECB97)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_gpio_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_gpio_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_gpio_ex.d)
+F (.\network.c)(0x691FD2FA)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\network.o --omf_browse fyz_stm32_ota\network.crf --depend fyz_stm32_ota\network.d)
+I (network.h)(0x691EEFAD)
+I (../Core/Inc/main.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -390,7 +393,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_spi.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_spi.crf --depend fyz_stm32_ota\stm32f1xx_hal_spi.d)
+I (../Core/Inc/usart.h)(0x691ECB97)
+I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
+I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
+I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
+F (.\network.h)(0x691EEFAD)()
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_gpio_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_gpio_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -419,7 +427,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal.o --omf_browse fyz_stm32_ota\stm32f1xx_hal.crf --depend fyz_stm32_ota\stm32f1xx_hal.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_spi.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_spi.crf --depend fyz_stm32_ota\stm32f1xx_hal_spi.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -448,7 +456,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_rcc.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_rcc.crf --depend fyz_stm32_ota\stm32f1xx_hal_rcc.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal.o --omf_browse fyz_stm32_ota\stm32f1xx_hal.crf --depend fyz_stm32_ota\stm32f1xx_hal.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -477,7 +485,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_rcc_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_rcc_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_rcc_ex.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_rcc.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_rcc.crf --depend fyz_stm32_ota\stm32f1xx_hal_rcc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -506,7 +514,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_gpio.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_gpio.crf --depend fyz_stm32_ota\stm32f1xx_hal_gpio.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_rcc_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_rcc_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_rcc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -535,7 +543,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_dma.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_dma.crf --depend fyz_stm32_ota\stm32f1xx_hal_dma.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_gpio.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_gpio.crf --depend fyz_stm32_ota\stm32f1xx_hal_gpio.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -564,7 +572,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_cortex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_cortex.crf --depend fyz_stm32_ota\stm32f1xx_hal_cortex.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_dma.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_dma.crf --depend fyz_stm32_ota\stm32f1xx_hal_dma.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -593,7 +601,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_pwr.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_pwr.crf --depend fyz_stm32_ota\stm32f1xx_hal_pwr.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_cortex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_cortex.crf --depend fyz_stm32_ota\stm32f1xx_hal_cortex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -622,7 +630,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_flash.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_flash.crf --depend fyz_stm32_ota\stm32f1xx_hal_flash.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_pwr.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_pwr.crf --depend fyz_stm32_ota\stm32f1xx_hal_pwr.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -651,7 +659,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_flash_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_flash_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_flash_ex.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_flash.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_flash.crf --depend fyz_stm32_ota\stm32f1xx_hal_flash.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -680,7 +688,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_exti.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_exti.crf --depend fyz_stm32_ota\stm32f1xx_hal_exti.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_flash_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_flash_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_flash_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -709,7 +717,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_tim.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_tim.crf --depend fyz_stm32_ota\stm32f1xx_hal_tim.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_exti.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_exti.crf --depend fyz_stm32_ota\stm32f1xx_hal_exti.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -738,7 +746,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_tim_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_tim_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_tim_ex.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_tim.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_tim.crf --depend fyz_stm32_ota\stm32f1xx_hal_tim.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -767,7 +775,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_uart.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_uart.crf --depend fyz_stm32_ota\stm32f1xx_hal_uart.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_tim_ex.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_tim_ex.crf --depend fyz_stm32_ota\stm32f1xx_hal_tim_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
@@ -796,7 +804,36 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
-F (../Core/Src/system_stm32f1xx.c)(0x6916EDFD)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\system_stm32f1xx.o --omf_browse fyz_stm32_ota\system_stm32f1xx.crf --depend fyz_stm32_ota\system_stm32f1xx.d)
+F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c)(0x66D96B68)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\stm32f1xx_hal_uart.o --omf_browse fyz_stm32_ota\stm32f1xx_hal_uart.crf --depend fyz_stm32_ota\stm32f1xx_hal_uart.d)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x66D96B68)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x69157E7A)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x66D96B68)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x66D96B68)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x66D96B68)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x66D96B5A)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
+I (../Drivers/CMSIS/Include/cmsis_version.h)(0x66D96B5A)
+I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x66D96B5A)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x66D96B5A)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x66D96B68)
+I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x6025237E)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x66D96B68)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x66D96B68)
+F (../Core/Src/system_stm32f1xx.c)(0x6916EDFD)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\app -I ..\app\delay -I ..\app\W25Q128 -I ..\app\FLASH -I ..\MDK-ARM-I.\RTE\_fyz_stm32_ota-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Users\Tokin_hardware\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o fyz_stm32_ota\system_stm32f1xx.o --omf_browse fyz_stm32_ota\system_stm32f1xx.crf --depend fyz_stm32_ota\system_stm32f1xx.d)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x66D96B68)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x66D96B68)
 I (../Drivers/CMSIS/Include/core_cm3.h)(0x66D96B5A)

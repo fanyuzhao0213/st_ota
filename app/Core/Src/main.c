@@ -29,6 +29,7 @@
 #include "delay.h"
 #include "W25Q128.h"
 #include "flash.h"
+#include "network.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -70,6 +71,7 @@ void Print_System_Info(void)
 	printf("=========[APP] version:%s=======\r\n",version);
     printf("========================================\r\n");
 }
+
 /* USER CODE END 0 */
 
 /**
@@ -122,14 +124,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  my_network_task();
+	  HAL_Delay(100);
+	  HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
     /* USER CODE END WHILE */
-	HAL_Delay(500);
-	HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
-	  if(uart2.rp != uart2.wp)
-	  {
-//		  printf("rev: %d byte!\r\n",UART_Buf_DataCount(&uart2));
-		  print_array_hex("rev: %d byte",&uart2.buf[uart2.rp],UART_Buf_DataCount(&uart2));
-	  }
+
+//	  if(uart2.rp != uart2.wp)
+//	  {
+////		  printf("rev: %d byte!\r\n",UART_Buf_DataCount(&uart2));
+//		  print_array_hex("rev: %d byte",&uart2.buf[uart2.rp],UART_Buf_DataCount(&uart2));
+//	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

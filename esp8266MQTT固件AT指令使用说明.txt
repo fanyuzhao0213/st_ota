@@ -1,0 +1,82 @@
+
+# 1. 测试模块
+AT
+//查询版本号
+AT+GMR
+# 2. 设置WiFi模式为Station
+AT+CWMODE=1
+
+# 3. 连接WiFi（替换为你的WiFi信息）
+//设置用户名和密码
+AT+CWJAP="TPP","td88888888"
+
+# 4. 检查IP地址
+AT+CIFSR
+
+# 5. 配置MQTT用户参数（使用你提供的参数）
+/*
+参数解析：
+0 - LinkID (固定为0)
+1 - Scheme (MQTT over TCP)
+"saas_mu" - Client ID
+"washer_saas_mu" - Username
+"$5ywq8bye5e7ah2hb*" - Password
+0 - cert_key_ID (固定为0)
+0 - CA_ID (固定为0)
+"" - path (空字符串)
+*/
+AT+MQTTUSERCFG=0,1,"saas_mu_999","washer_saas_mu","$5ywq8bye5e7ah2hb*",0,0,""
+
+# 6. 连接MQTT服务器（替换为你的服务器地址和端口）
+/*
+0 - LinkID
+"your_mqtt_broker.com" - MQTT服务器地址
+1883 - 端口号（常用：1883非加密，8883 TLS加密）
+1 - 使能自动重连
+*/
+AT+MQTTCONN=0,"app-management-server.washer-saas.istarix.com",20118,1
+
+# 7. 订阅主题（替换为你的主题）
+/*
+<LinkID>：当前仅支持 link ID 0。
+<topic>：MQTT topic，最大长度：128 字节。
+<qos>：发布消息的 QoS，参数可选 0、1、或 2，默认值：0。
+*/
+AT+MQTTSUB=0,"fyz_8266/fyz/#",1
+
+
+
+# 8. 发布测试消息
+/*
+<LinkID>：当前仅支持 link ID 0。
+<topic>：MQTT topic，最大长度：128 字节。
+<data>：MQTT 字符串消息。
+<qos>：发布消息的 QoS，参数可选 0、1、或 2，默认值：0。
+<retain>：发布 retain。
+*/
+AT+MQTTPUB=0,"fyz_8266/fyz/status","online",0,0  
+
+
+
+
+AT+CWJAP="TPP","td88888888"
+WIFI DISCONNECT
+WIFI CONNECTED
+WIFI GOT IP
+
+OK
+AT+CIFSR
++CIFSR:STAIP,"192.168.1.100"
++CIFSR:STAMAC,"ec:64:c9:e0:96:38"
+
+OK
+AT+MQTTUSERCFG=0,1,"saas_mu_999","washer_saas_mu","$5ywq8bye5e7ah2hb*",0,0,""
+
+OK
+AT+MQTTCONN=0,"app-management-server.washer-saas.istarix.com",20118,1
++MQTTCONNECTED:0,1,"app-management-server.washer-saas.istarix.com","20118","",1
+
+OK
+AT+MQTTSUB=0,"fyz_8266/fyz/#",1
+
+OK

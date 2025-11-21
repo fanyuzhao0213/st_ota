@@ -65,6 +65,8 @@ void ringbuf_advance_head(uart_buf_type *rb, uint16_t len);
 /* “∆∂Ø∂¡÷∏’Î */
 void ringbuf_advance_tail(uart_buf_type *rb, uint16_t len);
 void print_array_hex(const char *tag, const uint8_t *array, uint16_t len);
+void print_string(const char *tag, const uint8_t *array, uint16_t len);
+HAL_StatusTypeDef UART2_SendString_Timeout(const char *data, uint16_t len, uint32_t timeout);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
